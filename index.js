@@ -3,11 +3,15 @@ const app = express();
 const axios = require("axios");
 const path = require("path");
 
+app.use(express.static(__dirname + '/src/assets'));
+//dica quente q ele deu
+
 //pega todos
 // https://pokeapi.co/api/v2/pokemon?offset=0&limit=251
 
 //pega nome do pokemon especifico do pokemon/
 // https://pokeapi.co/api/v2/pokemon/
+
 
 const api = axios.create({
   baseURL: "https://pokeapi.co/api/v2/pokemon?offset=0&limit=251",
