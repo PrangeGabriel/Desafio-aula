@@ -3,12 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <title>Meus Pokemons</title>
-    <link rel="stylesheet" href="../assets/styles/index.css">
+    <link rel="stylesheet" href="../assets/styles/index.css" />
   </head>
 
   <body>
     <header>
-      <span><h1 class="titulo">PokeAPI</h1></span>
+      <h1 class="titulo">PokeAPI</h1>
       <div>
         <img
           src="https://avatars.githubusercontent.com/u/67351346?s=460&u=d4c89cfa29bf1bf999cb624bcde60955c5ea331a&v=4"
@@ -18,28 +18,30 @@
       </div>
     </header>
     <main>
-      <div>
+      <div id="pesquisa">
         <input type="text" placeholder="Digite seu Pokemon aqui" />
       </div>
-      <ul type="none">
-        <li>
-          <div>
-            <strong>#1 Pineco</strong>
-            <img src="../assets/img/pineco.bmp" alt="" />
-          </div>
-        </li>
-        <li>
-          <div>
-            <strong>#1 Pikachu</strong>
-            <img src="../assets/img/pikachu.bmp" alt="" />
-          </div>
-        </li>
-      </ul>
+      <div class="lista">
+        <div class="pokemon">
+          <strong>#1 Pineco</strong>
+          <img
+			src="../assets/img/pineco.bmp"
+			alt="pokemon pineco"
+			width="200px"
+			/>
+        </div>
+        <div class="pokemon">
+          <strong>#2 Pikachu</strong>
+          <img
+			src="../assets/img/pikachu.bmp"
+			alt="pokemon pikachu"
+			width="200px" 
+			/>
+        </div>
+      </div>
     </main>
     <footer>
-        <span>Desenvolvido por Gabriel Castanheira</span>
+      <span>Desenvolvido por Gabriel Castanheira</span>
     </footer>
   </body>
-
-  <footer></footer>
 </html>

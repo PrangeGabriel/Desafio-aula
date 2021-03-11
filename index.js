@@ -1,10 +1,7 @@
 const express = require("express");
-const app = express();
 const axios = require("axios");
 const path = require("path");
 
-app.use(express.static(__dirname + '/src/assets'));
-//dica quente q ele deu
 
 //pega todos
 // https://pokeapi.co/api/v2/pokemon?offset=0&limit=251
@@ -12,9 +9,35 @@ app.use(express.static(__dirname + '/src/assets'));
 //pega nome do pokemon especifico do pokemon/
 // https://pokeapi.co/api/v2/pokemon/
 
-
+const app = express();
 const api = axios.create({
   baseURL: "https://pokeapi.co/api/v2/pokemon?offset=0&limit=251",
+});
+
+const listaUsuarios = [
+  'Ivens',
+  'Jailson',
+  'Maria',
+  'Natalia',
+  'Ariel',
+  'Nykolle'
+]
+
+app.use(express.static(path.join(__dirname + '/src/assets')));
+
+// Query Params
+// Ex: localhost:3000/usuarios?nome=Ivens
+app.get('/usuarios', (req, res) => {
+  const { nome } = req.query;
+  let listaRetorno = listaUsuarios.filter(i => i.includes(nome || ''));
+  return res.json(listaRetorno);
+});
+
+// Route Params 
+// Ex: ecommer.com.br/produtos/4/detalhes
+app.get('/hello/:usuario', (req, res) => {    
+  const { usuario } = req.params;
+  return res.send(`Hello world ${usuario}`);
 });
 
 //rotas
@@ -34,7 +57,7 @@ app.get("/pokemon", async (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.sendFile(path.join(__dirname,''));
+  res.sendFile(path.join(__dirname,'/src/views/index.html'));
 });
 
 app.listen(3000, () => {
